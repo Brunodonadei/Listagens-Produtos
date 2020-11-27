@@ -16,31 +16,71 @@ namespace Atividade_produtos
 
             
             do{
+                Console.WriteLine("------------------------------------");
                 Console.WriteLine("Bem vindo(a) ao sistema de produtos!");
+                Console.WriteLine("------------------------------------\n");
                 Console.WriteLine("Escolha o que você deseja fazer: ");
-                Console.WriteLine("[1] - Cadastrar Produto\n[2] - Listar os produtos\n[3] - Sair do menu");
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Write("[1]");
+                Console.ResetColor();
+                Console.Write(" - Cadastrar Produto.\n");
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Write("[2]");
+                Console.ResetColor();
+                Console.Write(" - Listar os Produtos.\n");
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Write("[3]");
+                Console.ResetColor();
+                Console.Write(" - Sair do menu.\n");
+
+                Console.Write("Sua resposta: ");
+
+                Console.ForegroundColor = ConsoleColor.Blue;
                 escolha = int.Parse(Console.ReadLine());
+                Console.ResetColor();
+                Console.WriteLine("------------------------------------");
 
                 switch (escolha)
                 {
                     case 1:
                         Console.WriteLine("Página de cadastro de produtos.");
+                        Console.WriteLine("------------------------------------");
                         do
                         {
                             if(contador < 10)
-                            {                            
-                            Console.WriteLine($"Digite o nome do {contador + 1}º produto");
+                            {                     
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write($"Digite o nome do {contador + 1}º produto: ");
+
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
                             nome[contador] = Console.ReadLine();
-                            Console.WriteLine($"O produto está em promoção? Sim/Não");
+                            Console.WriteLine("\n");
+
+
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write($"O produto está em promoção? Sim/Não: ");
+
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
                             promocao[contador] = Console.ReadLine();
+                            Console.WriteLine("\n");
+
+                            Console.ResetColor();
 
                             contador++;
                             }else{
                                 Console.WriteLine("Número de produtos excedidos");
                                 break;
                             }
-                            Console.WriteLine("Quer registrar mais produtos? s/n");
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write("Quer registrar mais produtos? s/n: ");
+
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
                             resposta = Console.ReadLine();
+                            Console.WriteLine("\n");
+                            Console.ResetColor();
                             
                         } while (resposta == "s");
 
@@ -49,7 +89,7 @@ namespace Atividade_produtos
                     for (var i = 0; i < contador; i++){
                         
                         Console.WriteLine($"Seu {i+1}º produto é: {nome[i]}");
-                        Console.WriteLine($"Esse produto tem promoção? {promocao[i]}");
+                        Console.WriteLine($"Esse produto tem promoção? {promocao[i]}\n");
                     }
                         break;
                     case 3:
